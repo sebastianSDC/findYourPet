@@ -41,11 +41,11 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/categoria_pet"
+                android:id="@+id/status_pet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="categoria"
+                android:text="status"
                 android:textAlignment="center"
                 android:textSize="18sp" />
 

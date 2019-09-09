@@ -19,7 +19,9 @@ public class Pet implements Serializable {
     public Pet(){
     }
 
-    public Pet(String nombre, String foto){
+    public Pet(String nombre, String status){
+        this.nombre = nombre;
+        this.status = status;
     }
 
     public Integer getId() {

@@ -7,6 +7,7 @@ import com.example.pilasnotebook.findyourpet.Utils.ResultListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,20 +21,26 @@ public class PetDAORetrofit {
     private ServicePet servicePet;
 
     public PetDAORetrofit() {
-        Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create());
-        retrofit = builder.build();
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+        // con GSON convierto los objetos JASON en JAVA
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        retrofit = builder.client(httpClient.build()).build();
         servicePet = retrofit.create(ServicePet.class);
 
     }
 
-    public void getAvailablePets_DAO(final ResultListener<List<Pet>> resultListener_Controller) {
-        servicePet.getAvailablePets("status=available").enqueue(new Callback<PetContainer>() {
+    public void getAvailablePets_DAO(String status, final ResultListener<List<Pet>> resultListener_Controller) {
+        servicePet.getAvailablePets(status).enqueue(new Callback<PetContainer>() {
             @Override
             public void onResponse(Call<PetContainer> call, Response<PetContainer> response) {
                 PetContainer petContainer = response.body();
                 if (petContainer != null && petContainer.getPetsList() != null) {
-                    List<Pet> petList = petContainer.getPetsList();
-                    resultListener_Controller.finish(petList);
+                    List<Pet> pets = petContainer.getPetsList();
+                    resultListener_Controller.finish(pets);
                 }
             }
 

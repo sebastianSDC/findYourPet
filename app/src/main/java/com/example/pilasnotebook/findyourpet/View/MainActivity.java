@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.pilasnotebook.findyourpet.Controller.PetController;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private PetAdapter adapter;
     private PetController petController;
+    private String status="available";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void obtenerMascotas() {
-        petController.getAvailablePets_Controller(new ResultListener<List<Pet>>() {
+        petController.getAvailablePets_Controller(status, new ResultListener<List<Pet>>() {
             @Override
             public void finish(List<Pet> petList) {
 

@@ -3,11 +3,13 @@ import com.example.pilasnotebook.findyourpet.Model.POJO.PetContainer;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
 public interface ServicePet {
 
-    @GET("pet/findByStatus")
+    @Headers({"Accept: application/json"})
+    @GET("pet/findByStatus?")
     Call<PetContainer> getAvailablePets(@Query("status") String status);
 
     @GET("pet/{petId}")

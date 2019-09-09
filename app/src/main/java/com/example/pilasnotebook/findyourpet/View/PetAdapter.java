@@ -66,21 +66,22 @@ class PetAdapter extends RecyclerView.Adapter {
         private ImageView iconitoPetCelda;
         private TextView nombrePetCelda;
         private TextView categoriaPetCelda;
+        private TextView statusPetCelda;
         private TextView idPetCelda;
 
         public PetViewHolder(View itemView) {
             super(itemView);
             fotoPetCelda = itemView.findViewById(R.id.foto_pet);
             nombrePetCelda = itemView.findViewById(R.id.nombre_pet);
-            categoriaPetCelda = itemView.findViewById(R.id.categoria_pet);
-            idPetCelda = itemView.findViewById(R.id.id_pet);
+            statusPetCelda = itemView.findViewById(R.id.status_pet);
+            //idPetCelda = itemView.findViewById(R.id.id_pet);
             iconitoPetCelda = itemView.findViewById(R.id.iconito_pet);
         }
 
         public void cargarPet (Pet pet){
             nombrePetCelda.setText(pet.getNombre());
-            categoriaPetCelda.setText(pet.getCategoria().getNombre());
-            idPetCelda.setText(pet.getId());
+            statusPetCelda.setText(pet.getStatus());
+            //idPetCelda.setText(pet.getId());
 
             GlideApp.with(itemView.getContext())
                     .load(R.drawable.paw)
