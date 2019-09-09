@@ -8,11 +8,13 @@ import retrofit2.http.Query;
 
 public interface ServicePet {
 
-    @Headers({"Accept: application/json"})
+    @Headers({"accept: application/json"})
     @GET("pet/findByStatus?")
     Call<PetContainer> getAvailablePets(@Query("status") String status);
 
-    @GET("pet/{petId}")
-    Call<PetContainer> getIdPet(@Query("id") Integer id);
+
+    //TODO: la silencio hasta usarla
+//    @GET("pet/{petId}")
+//    Call<PetContainer> getIdPet(@Query("id") Integer id);
 
 }

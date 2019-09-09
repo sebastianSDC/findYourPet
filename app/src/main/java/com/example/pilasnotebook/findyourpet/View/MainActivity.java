@@ -5,14 +5,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.pilasnotebook.findyourpet.Controller.PetController;
 import com.example.pilasnotebook.findyourpet.Model.POJO.Pet;
 import com.example.pilasnotebook.findyourpet.R;
 import com.example.pilasnotebook.findyourpet.Utils.ResultListener;
-import com.example.pilasnotebook.findyourpet.View.PetAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         adapter = new PetAdapter();
         recyclerView.setAdapter(adapter);
-        petController = new PetController();
+        petController = new PetController(this);
         obtenerMascotas();
     }
 

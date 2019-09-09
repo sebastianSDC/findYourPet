@@ -22,8 +22,6 @@ public class PetDAORetrofit {
 
     public PetDAORetrofit() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-
-        // con GSON convierto los objetos JASON en JAVA
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
