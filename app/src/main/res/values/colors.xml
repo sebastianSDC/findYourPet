@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#f14507</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorFondoCelda">#fff6d7</color>
+    <color name="colorBlanco">#ffffff</color>
 </resources>

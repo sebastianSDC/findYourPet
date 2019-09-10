@@ -1,53 +1,40 @@
 package com.example.pilasnotebook.findyourpet.Model.POJO;
 
-import com.google.gson.annotations.SerializedName;
+public class Pet {
 
-import java.io.Serializable;
-import java.util.List;
-
-public class Pet implements Serializable {
-
-    private Integer id;
-    @SerializedName("category")
-    private Categoria categoria = null;
-    @SerializedName("name")
-    private String nombre;
-    @SerializedName("photoUrls")
-    private String foto;
-    private List<Tag> tags = null;
+    private String id;
+    private String name;
     private String status;
 
-    public Pet() {
-    }
-
-    public Pet(String nombre, String status, Integer id) {
-        this.nombre = nombre;
+    public Pet(String nombre, String status, String id) {
+        this.name = nombre;
         this.status = status;
         this.id = id;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getFoto() {
-        return foto;
+    public String getName() {
+        return name;
     }
 
-    public List<Tag> getTags() {
-        return tags;
+    public void setName(String name) {
+        this.name = name;
     }
+
 
 }

@@ -1,6 +1,5 @@
 package com.example.pilasnotebook.findyourpet.Controller;
 
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -26,19 +25,34 @@ public class PetController {
             petDAORetrofit.getAvailablePets_DAO(status, new ResultListener<List<Pet>>(){
                 @Override
                 public void finish(List<Pet> petList) {
-                    for(int i=0; i<5;i++){
-                    Pet petAPut = new Pet("dogiier", "available",12);
-                    petList.add(petAPut);
-                    Pet petAPot = new Pet("magger", "available", 24);
-                    petList.add(petAPot);
-                    Pet petAPit = new Pet("pituf", "available",35);
-                    petList.add(petAPit);}
+
+                    //por si no trae datos, los harcodeo.
+                    if(petList.isEmpty()) {
+                        for (int i = 0; i < 5; i++) {
+                            Pet petAPut = new Pet("dogiier", "available", "12");
+                            petList.add(petAPut);
+                            Pet petAPot = new Pet("magger", "available", "24");
+                            petList.add(petAPot);
+                            Pet petAPit = new Pet("pituf", "available", "35");
+                            petList.add(petAPit);
+                        }
+                    }
                     resultListener_View.finish(petList);
                 }
             });
         }else{
             Toast.makeText(context, "Sin Internet", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void getPetClickedID_Controller(String id,  final ResultListener<Pet> resultListener_View){
+        PetDAORetrofit petDAORetrofit= new PetDAORetrofit();
+        petDAORetrofit.getPetClickedID_DAO(id, new ResultListener<Pet>() {
+            @Override
+            public void finish(Pet pet) {
+                resultListener_View.finish(pet);
+            }
+        });
     }
 
     public static boolean hayInternet(Context context) {
