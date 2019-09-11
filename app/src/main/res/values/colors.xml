@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorFondoCelda">#fff6d7</color>
     <color name="colorBlanco">#ffffff</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -1,5 +1,8 @@
 package com.example.pilasnotebook.findyourpet.Model.DAO;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.example.pilasnotebook.findyourpet.Model.POJO.Pet;
 import com.example.pilasnotebook.findyourpet.Utils.ResultListener;
 

@@ -45,12 +45,12 @@ public class PetController {
         }
     }
 
-    public void getPetClickedID_Controller(String id,  final ResultListener<Pet> resultListener_View){
-        PetDAORetrofit petDAORetrofit= new PetDAORetrofit();
+    public void getPetClickedID_Controller(String id,  final ResultListener<Pet> resultListener_View) {
+        PetDAORetrofit petDAORetrofit = new PetDAORetrofit();
         petDAORetrofit.getPetClickedID_DAO(id, new ResultListener<Pet>() {
             @Override
             public void finish(Pet pet) {
-                resultListener_View.finish(pet);
+               resultListener_View.finish(pet);
             }
         });
     }

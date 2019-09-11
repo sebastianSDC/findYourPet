@@ -17,7 +17,7 @@ public interface ServicePet {
     Call<List<Pet>> getAvailablePets(@Query("status") String status);
 
 
-    //TODO: la silencio hasta usarla
-    @GET("pet/{petId}")
+
+    @GET("pet/{id}")
     Call<Pet> getIdPet(@Path("id") String id);
 }

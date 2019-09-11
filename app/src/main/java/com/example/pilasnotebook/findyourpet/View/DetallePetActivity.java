@@ -4,8 +4,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,32 +20,22 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.example.pilasnotebook.findyourpet.Controller.PetController;
+import com.example.pilasnotebook.findyourpet.Model.POJO.Pet;
 import com.example.pilasnotebook.findyourpet.R;
+import com.example.pilasnotebook.findyourpet.Utils.ResultListener;
 import com.example.pilasnotebook.findyourpet.View.Fragment.DetallePetFragment;
 import com.example.pilasnotebook.findyourpet.View.Fragment.MapaFragment;
 
 
-public class DetallePetActivity extends AppCompatActivity {
+public class DetallePetActivity extends AppCompatActivity implements DetallePetFragment.OnFragmentInteractionListener, MapaFragment.OnFragmentInteractionListener {
 
     public static final String PET_ID = "pet_id";
-    /*private PetController petController;
+    private PetController petController;
     private ProgressBar progressBar;
-    private ImageButton backButton;*/
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+    private ImageButton backButton;
     private PlaceholderFragment.SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
+    private String id;
 
 
     @Override
@@ -57,31 +45,51 @@ public class DetallePetActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        backButton = findViewById(R.id.backButton);
+        progressBar = findViewById(R.id.progressBar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new PlaceholderFragment.SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-
-
-
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            id = bundle.getString(PET_ID);
+        }
+        petController = new PetController(this);
+        petController.getPetClickedID_Controller(id, new ResultListener<Pet>() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            public void finish(Pet pet) {
+                sendDettailsPet(pet);
+                progressBar.setVisibility(View.GONE);
             }
         });
+        setBack();
 
 
+    }
+
+    public void setBack() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+
+    public void sendDettailsPet(Pet pet) {
+        DetallePetFragment detallePetFragment = new DetallePetFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("name", pet.getName());
+        bundle.putString("id", pet.getId());
+        bundle.putString("status", pet.getStatus());
+        detallePetFragment.setArguments(bundle);
     }
 
     @Override
@@ -145,8 +153,8 @@ public class DetallePetActivity extends AppCompatActivity {
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             super.onCreateView(inflater, container, savedInstanceState);
-            View rootView = inflater.inflate(R.layout.fragment_detalle_pet, container, false);
-            return rootView;
+            View view = inflater.inflate(R.layout.fragment_detalle_pet, container, false);
+            return view;
         }
 
 
@@ -170,7 +178,7 @@ public class DetallePetActivity extends AppCompatActivity {
             @Override
             public int getCount() {
                 // Show 3 total pages.
-                return 3;
+                return 2;
             }
 
 
