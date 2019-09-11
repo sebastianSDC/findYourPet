@@ -18,6 +18,7 @@ public class DetallePetFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM3 = "param3";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -32,27 +33,19 @@ public class DetallePetFragment extends Fragment {
     private TextView statusPet;
     private TextView idPet;
 
-
     private OnFragmentInteractionListener mListener;
 
     public DetallePetFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DetallePetFragment.
-     */
     // TODO: Rename and change types and number of parameters
-    public static DetallePetFragment newInstance(String param1, String param2) {
+    public static DetallePetFragment newInstance(Pet pet) {
         DetallePetFragment fragment = new DetallePetFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM1, pet.getName());
+        args.putString(ARG_PARAM2, pet.getStatus());
+        args.putString(ARG_PARAM3, pet.getId());
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,12 +53,13 @@ public class DetallePetFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        newInstance(pet);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mapa, container, false);
+        View view = inflater.inflate(R.layout.fragment_detalle_pet, container, false);
 
         namePet = view.findViewById(R.id.nombre_pet);
         statusPet = view.findViewById(R.id.status_pet);

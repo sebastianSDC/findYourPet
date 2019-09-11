@@ -10,14 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.pilasnotebook.findyourpet.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MapaFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MapaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MapaFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

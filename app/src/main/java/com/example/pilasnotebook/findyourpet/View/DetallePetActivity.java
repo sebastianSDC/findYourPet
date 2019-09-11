@@ -64,8 +64,10 @@ public class DetallePetActivity extends AppCompatActivity implements DetallePetF
         petController.getPetClickedID_Controller(id, new ResultListener<Pet>() {
             @Override
             public void finish(Pet pet) {
-                sendDettailsPet(pet);
                 progressBar.setVisibility(View.GONE);
+                DetallePetFragment detallePetFragment = new DetallePetFragment();
+                detallePetFragment.newInstance(pet);
+
             }
         });
         setBack();
@@ -80,16 +82,6 @@ public class DetallePetActivity extends AppCompatActivity implements DetallePetF
                 onBackPressed();
             }
         });
-    }
-
-
-    public void sendDettailsPet(Pet pet) {
-        DetallePetFragment detallePetFragment = new DetallePetFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("name", pet.getName());
-        bundle.putString("id", pet.getId());
-        bundle.putString("status", pet.getStatus());
-        detallePetFragment.setArguments(bundle);
     }
 
     @Override
