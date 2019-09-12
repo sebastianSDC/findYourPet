@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="100">
+    android:background="@color/colorBlanco">
 
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/faja"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@color/colorPrimary"
-        android:scaleType="centerCrop"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -21,44 +20,45 @@
         android:layout_marginBottom="460dp"
         android:drawableStart="@drawable/dog_2"
         android:fontFamily="@font/lobster_regular"
-        android:text="FindYourPet"
+        android:text="@string/findyourpet"
         android:textColor="@color/colorBlanco"
         android:textSize="28sp"
-        app:layout_anchor="@id/header"
+        app:layout_anchor="@id/faja"
         app:layout_anchorGravity="center"
-        tools:ignore="HardcodedText" />
+        />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/id_pet_detail"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="0dp"
+        android:id="@+id/foto_pet_detail"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:civ_circle_background_color="@color/colorPrimaryDark"
-        android:padding="12dp"
+        app:civ_border_color="@color/colorBlanco"
+        app:civ_border_width="30dp"
+        android:padding="8dp"
         android:src="@drawable/dog_2"
-        app:layout_anchor="@id/header"
+        app:layout_anchor="@id/faja"
         app:layout_anchorGravity="center|bottom" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="350dp"
-        app:layout_anchor="@id/id_pet_detail"
+        app:layout_anchor="@id/foto_pet_detail"
         app:layout_anchorGravity="bottom">
 
         <TextView
             android:id="@+id/nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="110dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/montserrat_regular"
-            android:text="Nombre: "
+            android:text="@string/nombre"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
-            tools:ignore="HardcodedText" />
+            />
 
         <TextView
             android:id="@+id/nombre_pet"
@@ -67,25 +67,24 @@
             android:layout_alignBaseline="@+id/nombre"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/nombre"
-            android:text="Mascota"
+            android:text="@string/mascota"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
-            tools:ignore="HardcodedText" />
+            />
 
         <TextView
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="110dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_alignEnd="@id/nombre"
             android:fontFamily="@font/montserrat_regular"
-            android:text="Status: "
+            android:text="@string/status"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
-            android:layout_alignParentTop="true"
-            tools:ignore="HardcodedText" />
+            />
 
         <TextView
             android:id="@+id/status_pet"
@@ -94,24 +93,25 @@
             android:layout_alignBaseline="@+id/status"
             android:layout_marginTop="40dp"
             android:layout_toEndOf="@id/status"
-            android:text="Available"
+            android:text="@string/available"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
-            tools:ignore="HardcodedText" />
+            android:layout_marginStart="8dp"
+            />
 
         <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="110dp"
             android:layout_marginTop="70dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:layout_alignEnd="@id/nombre"
             android:fontFamily="@font/montserrat_regular"
-            android:text="ID: "
+            android:text="@string/id"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
-            tools:ignore="HardcodedText" />
+            />
 
         <TextView
             android:id="@+id/id_pet"
@@ -120,10 +120,11 @@
             android:layout_alignBaseline="@+id/id"
             android:layout_marginTop="70dp"
             android:layout_toEndOf="@id/id"
-            android:text="11122"
+            android:text="@string/_11122"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
-            tools:ignore="HardcodedText" />
+            android:layout_marginStart="8dp"
+            />
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

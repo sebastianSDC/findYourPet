@@ -22,7 +22,9 @@
         android:paddingTop="8dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <include layout="@layout/toolbar" />
+
+        <!--<android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -33,10 +35,9 @@
             app:title="@string/app_name"
             app:titleMarginStart="60dp"
             android:fontFamily="@font/lobster_regular"
-
             >
 
-        </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>-->
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
@@ -49,13 +50,13 @@
                 android:id="@+id/tabItem_datos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Datos" />
+                android:text="@string/datos" />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem_cuponera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Donde Estamos" />
+                android:text="@string/donde_estamos" />
 
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
@@ -73,7 +74,8 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/transparent"
         android:src="@drawable/back_icon"
-        android:tint="@color/colorBlanco" />
+        android:tint="@color/colorBlanco"
+        android:contentDescription="@string/icon" />
 
     <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

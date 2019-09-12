@@ -9,5 +9,17 @@
 
     <string name="titleActivityMaps">Map</string>
     <string name="google_maps_key">AIzaSyBy6amxbwxlB7lfEE1QmkCD57sr5WSlbOg</string>
+    <string name="findyourpet">FindYourPet</string>
+    <string name="nombre">Nombre:</string>
+    <string name="mascota">Mascota</string>
+    <string name="status">Status:</string>
+    <string name="available">Available</string>
+    <string name="id">ID:</string>
+    <string name="_11122">11122</string>
+    <string name="nombre_mascota">Nombre Mascota</string>
+    <string name="elegi_tu_mascota_de_la_lista">Elegi tu mascota de la lista.</string>
+    <string name="datos">Datos</string>
+    <string name="donde_estamos">Donde Estamos?</string>
+    <string name="icon">icon</string>
 
 </resources>

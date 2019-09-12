@@ -6,7 +6,7 @@
     android:layout_marginEnd="16dp"
     android:background="@color/colorFondoCelda"
     android:orientation="vertical"
-    android:weightSum="10">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:maxWidth="90dp"
             android:maxHeight="90dp"
             android:src="@drawable/dog_1"
-            />
+            android:contentDescription="@string/mascota" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lobster_regular"
-                android:text="Nombre Mascota"
+                android:text="@string/nombre_mascota"
                 android:textAlignment="center"
                 android:layout_marginTop="12dp"
                 android:textSize="28sp" />
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="status"
+                android:text="@string/status"
                 android:textAlignment="center"
                 android:layout_marginBottom="4dp"
                 android:textSize="16sp" />
