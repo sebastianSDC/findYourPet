@@ -14,18 +14,10 @@ import com.example.pilasnotebook.findyourpet.R;
 
 public class DetallePetFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-
-    private Pet pet;
     private String name;
     private String status;
     private String id;
@@ -33,14 +25,13 @@ public class DetallePetFragment extends Fragment {
     private TextView statusPet;
     private TextView idPet;
 
-    private OnFragmentInteractionListener mListener;
 
     public DetallePetFragment() {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
-    public static DetallePetFragment newInstance(Pet pet) {
+
+    public static DetallePetFragment newInstanceDetails(Pet pet) {
         DetallePetFragment fragment = new DetallePetFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, pet.getName());
@@ -51,69 +42,23 @@ public class DetallePetFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        newInstance(pet);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detalle_pet, container, false);
 
         namePet = view.findViewById(R.id.nombre_pet);
         statusPet = view.findViewById(R.id.status_pet);
         idPet = view.findViewById(R.id.id_pet);
 
-
         Bundle bundle = getArguments();
-        if(bundle != null){
-            name = bundle.getString("namePet");
-            status = bundle.getString("statusPet");
-            id = bundle.getString("idPet");
+        if (bundle != null) {
+            name = bundle.getString(ARG_PARAM1);
+            status = bundle.getString(ARG_PARAM2);
+            id = bundle.getString(ARG_PARAM3);
 
             namePet.setText(name);
             statusPet.setText(status);
             idPet.setText(id);
-            }
+        }
         return view;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof DetallePetFragment.OnFragmentInteractionListener) {
-            mListener = (DetallePetFragment.OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }

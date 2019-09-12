@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements PetAdapter.PetCli
 
     private void iniciarToolbar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("FindYourPet");
+        getSupportActionBar().setTitle(" FindYourPet");
         getSupportActionBar().setIcon(R.drawable.dog_2);
 
     }

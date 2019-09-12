@@ -7,4 +7,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="titleActivityMaps">Map</string>
+    <string name="google_maps_key">AIzaSyBy6amxbwxlB7lfEE1QmkCD57sr5WSlbOg</string>
+
 </resources>
