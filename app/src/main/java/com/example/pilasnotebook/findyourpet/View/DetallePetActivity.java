@@ -1,5 +1,6 @@
 package com.example.pilasnotebook.findyourpet.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -43,11 +44,7 @@ public class DetallePetActivity extends AppCompatActivity {
         vp = (ViewPager) findViewById(R.id.container);
         vp.setAdapter(adapter);
          tab = (TabLayout) findViewById(R.id.tabs);
-       /* vp.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab));
-        tab.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(vp));*/
 
-        setBack();
-        //iniciarToolbar();
         setVpTabs();
 
         progressBar.setVisibility(View.VISIBLE);
@@ -64,6 +61,13 @@ public class DetallePetActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
             }
         });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setBack();
+            }
+        });
     }
 
     private void setVpTabs() {
@@ -73,19 +77,9 @@ public class DetallePetActivity extends AppCompatActivity {
         tab.setupWithViewPager(vp);
     }
 
-    /*private void iniciarToolbar() {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("FindYourPet");
-    }*/
-
-    public void setBack() {
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-    }
-
+   public void setBack(){
+       Intent intent = new Intent(DetallePetActivity.this,MainActivity.class);
+       startActivity(intent);
+   }
 }
 

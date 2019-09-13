@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="460dp"
+        android:layout_marginBottom="430dp"
         android:drawableStart="@drawable/dog_2"
         android:fontFamily="@font/lobster_regular"
         android:text="@string/findyourpet"

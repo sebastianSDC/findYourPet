@@ -44,6 +44,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mapa, container, false);
+        mapView = view.findViewById(R.id.GoogleMap_container);
         return view;
     }
 
@@ -71,7 +72,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
 
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-            mGoogleMap.setMinZoomPreference(15);
+            mGoogleMap.setMinZoomPreference(10);
             mGoogleMap.addMarker(new MarkerOptions().position(suc1).title("findYourPet. Suc 1"));
             mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(suc1));
 

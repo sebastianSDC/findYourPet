@@ -61,7 +61,7 @@
         android:src="@drawable/back_icon"
         android:tint="@color/colorBlanco"
         android:contentDescription="@string/icon"
-        tools:ignore="UnusedAttribute" />
+         />
 
 
 </android.support.design.widget.CoordinatorLayout>
