@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
@@ -27,17 +28,14 @@ public class DetallePetActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Toolbar toolbar;
     private TabLayout tab;
-    private ImageButton backButton;
+    private Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_pet);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("FindYourPet");
-        getSupportActionBar().setDisplayHomeAsUpEnabled( true );
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         backButton = findViewById(R.id.backButton);
         progressBar = findViewById(R.id.progressBar);
 
@@ -65,7 +63,7 @@ public class DetallePetActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setBack();
+                onBackPressed();
             }
         });
     }
@@ -77,9 +75,5 @@ public class DetallePetActivity extends AppCompatActivity {
         tab.setupWithViewPager(vp);
     }
 
-   public void setBack(){
-       Intent intent = new Intent(DetallePetActivity.this,MainActivity.class);
-       startActivity(intent);
-   }
 }
 

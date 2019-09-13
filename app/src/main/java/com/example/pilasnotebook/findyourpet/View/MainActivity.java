@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements PetAdapter.PetCli
         progressBar.setVisibility(View.VISIBLE);
         //metodos
         obtenerMascotas();
-        iniciarToolbar();
         actualizarDatos();
     }
 
@@ -69,13 +68,6 @@ public class MainActivity extends AppCompatActivity implements PetAdapter.PetCli
                 },3000);
             }
         });
-    }
-
-    private void iniciarToolbar() {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(" FindYourPet");
-        getSupportActionBar().setIcon(R.drawable.dog_2);
-
     }
 
     private void obtenerMascotas() {
